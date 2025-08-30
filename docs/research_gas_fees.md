@@ -1,6 +1,8 @@
 # Research Gas Fees
 
-## Allow No Gas Fees for end users using a Server
+## 2 ways of paying gas fees on behalf of end users
+
+### Allow No Gas Fees for end users using a Server
 
 We create a Server which has a private key to update state on a solidity contract.  The Server has 
 a database of users.  A user logs in to the server by signing some text and sending it to the server 
@@ -18,14 +20,16 @@ This Server requires us to write the server code and incur costs hosting it on t
 The Alternative to hosting our server is to use the ERC 4227 functionality on Ethereum style chains.
 
 
-## Allow no Gas Fees for end users using ERC 4227 functionality
+### Allow no Gas Fees for end users using ERC 4227 functionality
 
 We want the user to trigger updating state on a contract of their liking without paying gas fees. 
 For the purpose of this explanation we call that contract the State Contract.
 
 In this design we do not need to deploy a server. However we need to talk to a Server called a 
-Bundler.  We sign an instruction and some state we want updated in the State Contrac and we pass it 
-to the Bundler. The Bundler triggers a smart contract update to the state contract. 
+Bundler.  We sign an instruction and some state we want updated in the State Contract and we pass it 
+to the Bundler. The Bundler triggers a smart contract update to the State Contract.
+
+The Bundler server exposes an api so we can instruct it. 
 
 The Bundler pays gas fees but will later get a refund which is a bit more than what they spent. 
 That bit extra is their motivation to participate.
@@ -33,7 +37,7 @@ That bit extra is their motivation to participate.
 The Bundler talks to a Smart Contract called an EntryPoint.  The EntryPoint talks to a 
 "Smart Account" contract which allows an end user to spend or receive crypto.  The end user can use 
 a wallet that supports Smart Accounts to authorise the smart account to transfer funds.  
-For example metamask can be upgraded to a work with a Smart Account.
+For example metamask can be upgraded to trigger the Smart Account to do stuff.
 
 The EntryPoint also optionally talks to a PayMaster smart contract the latter of which has an 
 address it can use for paying.  The idea is that either the Smart Account or the PayMaster pay gas 

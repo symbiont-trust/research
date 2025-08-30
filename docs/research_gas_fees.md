@@ -51,3 +51,34 @@ update state on the State Contract.
 The EntryPoint can get the PayMaster to pay both for the refund to the Bundler and the cost of gas 
 fees for updating state on the State Contract. 
 
+
+## Questions
+
+---
+
+Question: can a hidden wallet of reown's app kit be upgraded to talk to a smart account?
+
+Answer:  Yes.  The hidden wallet is similar to a wallet like Metamask except its private key is 
+recreated from a bunch of nodes.  Both MetaMask and the App Kit hidden wallet can be upgraded to use
+a Smart Account.  Note every user needs to deploy a Smart Account contract.  Deploying a Smart
+Account Contract costs gas fees.
+
+---
+
+Question: can the PayMaster pay for the gas fees for deploying a Smart Account Contract?
+
+Answer: Yes
+
+---
+
+Question: where can we limit the end user abusing the system and depleting all the PayMaster's funds?
+
+Answer: The PayMaster can limit
+
+---
+
+Question: How does 2FA work with Smart Accounts?
+
+Answer: The PayMaster can work with 2FA
+
+---
